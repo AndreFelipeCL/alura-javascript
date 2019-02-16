@@ -15,7 +15,7 @@ buttonAdd.addEventListener('click', function(event){
 
     paciente.imc = doIMCCalc(paciente);
     appendToTableList(criaTrElement(paciente));
-
+    form.reset();
 });
 
 function appendToTableList(pacienteTr) {
