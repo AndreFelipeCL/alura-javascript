@@ -6,8 +6,10 @@ buttonAdd.addEventListener('click', function(event){
     var form = document.querySelector('#form-adiciona');
     var paciente = obtemPacienteDoFormulario(form);
     
+    var mensagemErro = document.querySelector("#mensagem-erro");
+    mensagemErro.textContent = "";
     if(validaPaciente(paciente)){
-        alert("Paciente com dados inválido!");
+        mensagemErro.textContent = "Paciente com dados inválido!";
         return;
     }
 
