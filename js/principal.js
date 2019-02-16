@@ -2,14 +2,14 @@ var titulo = document.querySelector(".titulo");
 titulo.textContent = "Aparecida Nutricionista"
 
 function validaValores(item){    
-    var cliente = clienteCriator(item);
+    var paciente = pacienteCriator(item);
     validadores.every(validador => {
-        if(validador(cliente)){
-            setIMC(cliente, INVALID_IMC);
+        if(validador(paciente)){
+            setIMC(paciente, INVALID_IMC);
             item.classList.add('paciente-invalido');
             return false;
         } else {
-            setIMC(cliente, doCalc(cliente));
+            setIMC(paciente, doCalc(paciente));
             return true;
         }
     });
@@ -19,8 +19,8 @@ function setIMC(cliente, value) {
     cliente.imc.innerText = value;
 }
 
-function doCalc(cliente) {
-    return (cliente.peso / Math.pow(cliente.altura, 2)).toFixed(2);
+function doCalc(paciente) {
+    return (paciente.peso / Math.pow(paciente.altura, 2)).toFixed(2);
 }
 
 function init() {
