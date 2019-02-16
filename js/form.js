@@ -5,10 +5,15 @@ buttonAdd.addEventListener('click', function(event){
 
     var form = document.querySelector('#form-adiciona');
     var paciente = obtemPacienteDoFormulario(form);
-    var pacienteTr = criaTrElement(paciente);
-	
-	validaValores(pacienteTr);
-    appendToTableList(pacienteTr);
+    
+    if(validaPaciente(paciente)){
+        alert("Paciente com dados inválido!");
+        return;
+    }
+
+    paciente.imc = doIMCCalc(paciente);
+    appendToTableList(criaTrElement(paciente));
+
 });
 
 function appendToTableList(pacienteTr) {
@@ -50,5 +55,9 @@ function createTd(valor, classe) {
     td.classList.add(classe);
     td.textContent = valor;
     return td;
+}
+
+function validaPaciente(paciente) {
+    return validadores.some(validador => validador(paciente));
 }
 

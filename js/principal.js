@@ -6,7 +6,7 @@ function validaValores(pacienteHTML){
             pacienteHTML.classList.add('paciente-invalido');
             return false;
         } else {
-            setIMC(paciente, doCalc(paciente));
+            setIMC(paciente, doIMCCalc(paciente));
             return true;
         }
     });
@@ -16,7 +16,7 @@ function setIMC(paciente, value) {
     paciente.imc.innerText = value;
 }
 
-function doCalc(paciente) {
+function doIMCCalc(paciente) {
     return (paciente.peso / Math.pow(paciente.altura, 2)).toFixed(2);
 }
 
