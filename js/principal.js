@@ -7,7 +7,7 @@ function calcIMC(){
         var peso = Math.abs(item.querySelector('.info-peso').innerText);
         var altura = Math.abs(item.querySelector('.info-altura').innerText);
         var imc = item.querySelector('.info-imc');
-        imc.innerText = Math.round(peso / (altura*altura));
+        imc.innerText = (peso / (altura*altura)).toFixed(2);
     });
 };
 
