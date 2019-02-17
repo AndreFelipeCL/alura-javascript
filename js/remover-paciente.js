@@ -1,7 +1,7 @@
-var pacientes = document.querySelectorAll(".paciente");
+var table = document.querySelectorAll("table");
 
-pacientes.forEach(function (paciente) {
-    paciente.addEventListener("dblclick", function () {
-        this.remove();
+table.forEach(function (table) {
+    table.addEventListener("dblclick", function (event) {
+        event.target.parentNode.remove();
     });
 });
