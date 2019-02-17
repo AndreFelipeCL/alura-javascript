@@ -48,3 +48,7 @@ function validaAlturaMaior(cliente){
     return false;
 }
 validadores.push(validaAlturaMaior);
+
+function validaPaciente(paciente) {
+    return validadores.some(validador => validador(paciente));
+}

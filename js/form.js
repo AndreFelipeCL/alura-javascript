@@ -9,7 +9,7 @@ buttonAdd.addEventListener('click', function(event){
     var mensagemErro = document.querySelector("#mensagem-erro");
     mensagemErro.textContent = "";
     if(validaPaciente(paciente)){
-        mensagemErro.textContent = "Paciente com dados inválido!";
+        mensagemErro.textContent = "Paciente com dados inválidos!";
         return;
     }
 
@@ -58,8 +58,3 @@ function createTd(valor, classe) {
     td.textContent = valor;
     return td;
 }
-
-function validaPaciente(paciente) {
-    return validadores.some(validador => validador(paciente));
-}
-
