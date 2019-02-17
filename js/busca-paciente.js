@@ -6,10 +6,18 @@ botaoAdicionar.addEventListener("click", function(){
     xhr.open("GET", "https://api-pacientes.herokuapp.com/pacientes");
 
     xhr.addEventListener("load", function(){
+        
+        var mensagemErro = document.querySelector("#mensagem-erro-by-ajax");
+        mensagemErro.classList.add('invisivel');
+        if(xhr.status != 200){
+            mensagemErro.classList.remove('invisivel');
+            mensagemErro.textContent = "Erro ao buscar valores via requisição. \n(Error " +xhr.status +' - '+ xhr.statusText +")";
+            return;
+        }
+
         var data = xhr.responseText;
         var pacientes = JSON.parse(data);
         
-        var mensagemErro = document.querySelector("#mensagem-erro-by-ajax");
         pacientes.forEach(paciente => {
             var pacienteTr = criaTrElement(paciente);
             
